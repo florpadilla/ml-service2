@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  machine-learning:
+    container_name: ml-service
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    environment:
+      PORT: 3000
+      SERVER_URL: http://localhost:3000/api/v1
+
+volumes:
+  ml-service:
+
+networks:
+  ml-service:
+  
